@@ -2,8 +2,17 @@ import { useState } from 'react'
 import { Bell, Search } from 'lucide-react'
 import Input from '../ui/Input'
 
-export default function Topbar() {
+export default function Topbar({ onNavigate }) {
   const [search, setSearch] = useState('')
+
+  const handleProfile = () => {
+    if (typeof onNavigate === 'function') {
+      onNavigate('profile')
+    } else {
+      // Fallback for direct navigation
+      window.location.href = '/profile'
+    }
+  }
 
   return (
     <header className="sticky top-0 z-30 h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shadow-sm">
@@ -30,9 +39,9 @@ export default function Topbar() {
             <p className="text-sm font-medium text-slate-800">Admin User</p>
             <p className="text-xs text-slate-500">Immigration Officer</p>
           </div>
-          <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">
-            AU
-          </div>
+           <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">
+             <button onClick={handleProfile}> AU </button>
+           </div>
         </div>
       </div>
     </header>

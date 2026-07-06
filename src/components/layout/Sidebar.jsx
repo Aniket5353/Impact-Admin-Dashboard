@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {
   LayoutDashboard, Users, Briefcase, Map, Building2, Globe2,
   GraduationCap, BarChart3, Bell, ChevronRight, Settings,
+  MessageSquare, Calendar
 } from 'lucide-react'
 
 const NAV_ITEMS = [
@@ -14,6 +15,8 @@ const NAV_ITEMS = [
   { id: 'advisors',      label: 'Advisors',       Icon: GraduationCap },
   { id: 'analytics',     label: 'Analytics',      Icon: BarChart3 },
   { id: 'notifications', label: 'Notifications',  Icon: Bell, badge: 2 },
+  { id: 'messages',      label: 'Messages',       Icon: MessageSquare, badge: 3 },
+  { id: 'consultation',  label: 'Consultation',   Icon: Calendar, badge: 1 },
 ]
 
 export default function Sidebar({ active, onNavigate }) {
